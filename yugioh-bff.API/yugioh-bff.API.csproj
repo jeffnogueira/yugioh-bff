@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>yugioh_bff.API</RootNamespace>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\yugioh-bff.Infra.Data\yugioh-bff.Infra.Data.csproj" />
+    <ProjectReference Include="..\yugioh-bff.Infra.IoC\yugioh-bff.Infra.IoC.csproj" />
+  </ItemGroup>
+
+</Project>
