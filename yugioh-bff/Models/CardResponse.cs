@@ -1,42 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
-using yugioh_bff.Enums;
 
 namespace yugioh_bff.Models
 {
     public class CardResponse
     {
-        private int id { get; set; }
-        private string name { get; set; }
-
-        [JsonConverter(typeof(JsonStringEnumConverter))]
-        private CardType type { get; set; }
-        private string desc { get; set; }
-        private int atk { get; set; }
-        private int def { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string type { get; set; }
+        public string desc { get; set; }
+        public int atk { get; set; }
+        public int def { get; set; }
 
         [Range(1, 12)]
-        private int level { get; set; }
+        public int level { get; set; }
+        public string race { get; set; }
+        public string attribute { get; set; }
 
-        [JsonConverter(typeof(JsonStringEnumConverter))]
-        private CardRace race { get; set; }
-
-        [JsonConverter(typeof(JsonStringEnumConverter))]
-        private CardAttribute attribute { get; set; }
-
-        private string archetype { get; set; }
+        public string archetype { get; set; }
 
         [Range(1, 12)]
-        private int scale { get; set; }
+        public int scale { get; set; }
 
         [Range(1, 8)]
-        private int linkval { get; set; }
-        private IEnumerable<string> linkmarkers { get; set; }
-        private BanListRequest banlist_info { get; set; }
-        private IEnumerable<SetRequest> card_sets { get; set; }
-        private IEnumerable<ImageRequest> card_images { get; set; }
-        private IEnumerable<PriceRequest> card_prices { get; set; }
+        public int linkval { get; set; }
+        public IEnumerable<string> linkmarkers { get; set; }
+        public BanListRequest banlist_info { get; set; }
+        public IEnumerable<SetRequest> card_sets { get; set; }
+        public IEnumerable<ImageRequest> card_images { get; set; }
+        public IEnumerable<PriceRequest> card_prices { get; set; }
+
+        public CardResponse()
+        {
+
+        }
     }
 }

@@ -1,11 +1,7 @@
 ﻿using AutoMapper;
 using yugioh_bff.Models;
-using System.Collections.Generic;
 using System.Net.Http;
-using System;
 using System.Threading.Tasks;
-using System.Diagnostics;
-using Nancy.Json;
 
 namespace yugioh_bff.Services
 {
@@ -24,8 +20,7 @@ namespace yugioh_bff.Services
             DataCardResponse dataCards = new DataCardResponse();
             HttpResponseMessage response = await httpClient.GetAsync("https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=" + fname);
 
-            JavaScriptSerializer JSserializer = new JavaScriptSerializer();
-            dataCards = JSserializer.Deserialize<DataCardResponse>(response.Content.ReadAsStringAsync().Result);
+            dataCards = await response.Content.ReadAsAsync<DataCardResponse>();
 
             return _mapper.Map<DataCardResponse>(dataCards);
         }

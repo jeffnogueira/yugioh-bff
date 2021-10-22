@@ -25,7 +25,7 @@ namespace yugioh_bff.Controllers
         [ProducesResponseType(500)]
         public IActionResult GetCards([FromQuery] string fname)
         {
-            return Ok(this._cardService.GetAllCards(fname));
+            return Ok(this._cardService.GetAllCards(fname).Result);
         }
     }
 }
